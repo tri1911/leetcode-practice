@@ -40,3 +40,17 @@ int maxProfit(vector<int> &prices) {
     }
     return max(previous_sell, previous_empty);
 }
+
+// Solution with best space complexity
+// int maxProfit(vector<int>& prices) {
+//     int hold = std::numeric_limits<int>::min();
+//     int cooldown = std::numeric_limits<int>::min();
+//     int not_hold = 0;
+
+//     for (const auto& price : prices) {
+//         hold = std::max(not_hold - price, hold);
+//         not_hold = std::max(cooldown, not_hold);
+//         cooldown = hold + price;
+//     }
+//     return std::max({hold, not_hold, cooldown});
+// }
