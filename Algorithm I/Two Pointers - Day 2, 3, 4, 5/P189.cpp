@@ -36,6 +36,8 @@ void rotate(vector<int>& nums, int k) {
 	int size = nums.size();
 	int steps = k % size;
 	reverse(nums, 0, size - 1);
-	reverse(nums, 0, k - 1);
-	reverse(nums, k, size - 1);
+	reverse(nums, 0, steps - 1);
+	reverse(nums, steps, size - 1);
 }
+
+// TODO: Juggling Algorithm
