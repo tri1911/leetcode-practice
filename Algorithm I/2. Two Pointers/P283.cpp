@@ -27,6 +27,19 @@ void moveZeroes(vector<int>& nums) {
 	// cin.tie(nullptr);
 	for (int current = 0, lastZeroPosition = 0; current < nums.size(); current++) {
 		if (nums[current] != 0)
-			nums[lastZeroPosition++] = nums[current];
+			swap(nums[lastZeroPosition++], nums[current]);
 	}
+}
+
+// two-pointer approach (my own solution)
+void moveZeroes(vector<int>& nums) {
+    // the location of the first zero in array
+    int first_index = -1;
+    for (int i = 0; i < nums.size(); i++) {
+        if (nums[i] != 0 && first_index != -1) {
+            swap(nums[i], nums[first_index++]);
+        } else if (nums[i] == 0 && first_index == -1) {
+            first_index = i;
+        }
+    }
 }

@@ -18,24 +18,19 @@ public:
 	// space complexity: O(1)
 	// failed test case: [5] [1,2,4]
 	ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-	    if (!l1)
-	    	return l2;
-	    if (!l2)
-	    	return l1;
-	    ListNode* result;
-	    if (l1->val == l2->val) {
-	    	result= mergeTwoLists(l1->next, l2->next);
-	    	l1->next = l2;
-	    	l2->next = result;
-	    	return l1;
-	    }
-	    if (l1->val < l2->val) {
-    		result = mergeTwoLists(l1->next, l2);
-	    	l1->next = result;
-	    	return l1;
-	    }
-	    result = mergeTwoLists(l1, l2->next);
-	    l2->next = result;
-	    return l2;
+	    if (!l1 || !l2)
+            return l1 ? l1 : l2;
+        if (l1->val == l2->val) {
+            ListNode* result = mergeTwoLists(l1->next, l2->next);
+            l1->next = l2;
+            l2->next = result;
+            return l1;
+        }
+        if (l1->val < l2->val) {
+            l1->next = mergeTwoLists(l1->next, l2);
+            return l1;
+        }
+        l2->next = mergeTwoLists(l1, l2->next);
+        return l2;
 	}
 };

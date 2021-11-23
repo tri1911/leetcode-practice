@@ -47,3 +47,29 @@ public:
 	    return root;
 	}
 };
+
+// Date: Nov 20, 2021
+// Breadth-first search
+// Time complexity: O(n)
+// Space complexity: O(1)
+class Solution {
+public:
+    Node* connect(Node* root) {
+    	// the first node in the level is checking
+        Node* first_node = root;
+        // the node iterates through all nodes in the current level
+        // in order to populate the 'next' pointers for its children (left and right)
+        Node* current;
+        while (first_node && first_node->left) {
+        	current = first_node;
+        	while(current) {
+        		current->left->next = current->right;
+        		// all the nodes in the same level as the parent (current) are populated
+        		current->right->next = current->next ? current->next->left : nullptr;
+        		current = current->next;
+        	}
+        	first_node = first_node->left;
+        }
+        return root;
+    }
+};

@@ -19,7 +19,6 @@ void dfs(vector<vector<int>>& image, int row, int col, int oldColor, int newColo
 }
 
 vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
-	int rows = image.size(), cols = image[0].size();
 	int oldColor = image[sr][sc];
 	if (oldColor != newColor)
 		dfs(image, sr, sc, oldColor, newColor);

@@ -12,4 +12,4 @@ int singleNumber(vector<int>& nums) {
 
 // reference: 
 // https://www.hackerearth.com/practice/basic-programming/bit-manipulation/basics-of-bit-manipulation/tutorial/
-https://www.geeksforgeeks.org/bits-manipulation-important-tactics/
+// https://www.geeksforgeeks.org/bits-manipulation-important-tactics/

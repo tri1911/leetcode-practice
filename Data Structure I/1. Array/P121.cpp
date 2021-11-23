@@ -19,3 +19,14 @@ int maxProfit(vector<int>& prices) {
 	}
 	return ans;
 }
+
+int maxProfit(vector<int>& prices) {
+    int ans = 0, min_buy = INT_MAX;
+    for (int price: prices) {
+        // update the answer (max profit)
+        ans = max(price - min_buy, ans);
+        // update the min
+        min_buy = min(price, min_buy);
+    }
+    return ans;
+}
