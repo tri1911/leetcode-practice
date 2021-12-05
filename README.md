@@ -2,5 +2,5 @@
 ## Study Plans
 [Done] Dynamic Programming I </br>
 [Done] Algorithm I </br>
-[Processing...] Data Structure I </br>
+[Done] Data Structure I </br>
 [Processing...] Algorithm II </br>

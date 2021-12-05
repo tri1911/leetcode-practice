@@ -1,4 +1,4 @@
-// Date: Sun, Nov 21, 2021
+// Date: Sun, Nov 21, 2021 (Not done) => Redo on Dec 5, 2021
 // 235. Lowest Common Ancestor of a Binary Search Tree
 
 /**
@@ -13,32 +13,16 @@
 
 class Solution {
 public:
+    // time complexity: O(h) ~ O(logn)
+    // space complexity: O(1)
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-    	// takes O(logn)
-        TreeNode* prev_p = nullptr;
-        TreeNode* current_p = root;
-        while (current_p) {
-        	if (p == current_p->val)
-        		break;
-        	prev_p = current_p;
-        	if (p < current_p->val)
-        		current_p = current_p->left;
-        	else
-        		current_p = current_p->right;
-        }
-
-        // takes O(logn)
-        TreeNode* prev_q = root;
-        TreeNode* current_q;
-        while (current_q) {
-        	if (p == current_q->val)
-        		break;
-        	prev_q = current_q;
-        	if (p < current_q->val)
-        		current_q = current_q->left;
-        	else
-        		current_q = current_q->right;
-        }
-
+    	if (root->val > max(p->val, q->val))
+            return lowestCommonAncestor(root->left, p, q);
+        if (root->val < min(p->val, q->val))
+            return lowestCommonAncestor(root->right, p, q);
+        return root;
     }
 };
+
+// reference
+// https://www.youtube.com/watch?v=TIoCCStdiFo
