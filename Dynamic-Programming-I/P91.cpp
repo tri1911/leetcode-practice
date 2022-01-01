@@ -40,32 +40,35 @@
 // s contains only digits and may contain leading zero(s).
 
 int numDecodings(string s) {
-	if (s[0] < '1' || s[1] > '9')
+	if (s[0] == '0') 
 		return 0;
-	int count1 = 1;
-	int count2 = 0;
-	for (int i = 1; i < s.length(); i++) {
-		int previous = s[i - 1] - '0';
-		int current = s[i] - '0';
-		int combine = previous * 10 + current;
-
-		if (current == 0) {
-			if (previous == 1 || previous == 2) {
-				count2 = count1;
-				count1 = 0;
-			} else {
+	int n = s.size();
+    // possible decoded array might end with
+    // 1-digit number (e.g. 12, 23, 2) or 2 digit (e.g. 12, 23, 2, 14)
+	int one_digit_count = 1, two_digits_count = 0;
+    // iterate through each index and update one_digit_count, two_digits_count
+    // at the point the current character being added to the decoded array
+	for (int i = 1; i < n; i++) {
+		int current_char = s[i] - '0';
+		int prev_char = s[i - 1] - '0';
+		if (current_char == 0) {
+			if (prev_char == 1 || prev_char == 2) {
+				two_digits_count = one_digit_count;
+				one_digit_count = 0;
+			}
+			else {
 				return 0;
 			}
 		} else {
-			if (combine >= 1 && combine <= 26) {
-				int tmp = count1;
-				count1 += count2;
-				count2 = tmp;
- 			} else {
-				count1 += count2;
-				count2 = 0;
-			}
+            // cache the old count for possibilities ending with 1-digit
+			int tmp = one_digit_count; 
+            // update one_digit_count and two_digits_count
+			one_digit_count += two_digits_count;
+			if (prev_char * 10 + current_char <= 26)
+				two_digits_count = tmp;
+			else
+				two_digits_count = 0;
 		}
 	}
-	return count1 + count2;
+	return one_digit_count + two_digits_count;
 }

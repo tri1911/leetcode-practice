@@ -18,7 +18,6 @@ public class P51 {
         return ans;
     }
 
-
     // helper functions
     
     private void search(int row, int[] board, List<List<String>> ans) {
