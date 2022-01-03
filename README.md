@@ -1,6 +1,28 @@
 # Practice Data Structure and Algorithm with LeetCode
+Leetcode problem solutions I did during the time practicing data structure and algorithm.
+
 ## Study Plans
-[Done] Dynamic Programming I </br>
-[Done] Algorithm I </br>
-[Done] Data Structure I </br>
-[Processing...] Algorithm II </br>
+1. [Data Structure I](./Data-Structure-I)
+	1. [Array](./Data-Structure-I/1-Array)
+	2. [String](./Data-Structure-I/2-String)
+	3. [Linked List](./Data-Structure-I/3-Linked-List)
+	4. [Stack and Queue](./Data-Structure-I/4-Stack-and-Queue)
+	5. [Tree](./Data-Structure-I/5-Tree)
+2. [Algorithm I](./Algorithm-I)
+	1. [Binary Search](./Algorithm-I/1-Binary-Search)
+	2. [Two Pointers](./Algorithm-I/2-Two-Pointers)
+	3. [Sliding Window](./Algorithm-I/3-Sliding-Window)
+	4. [BFS and DFS](./Algorithm-I/4-BFS-and-DFS)
+	5. [Recursion/Backtracking](./Algorithm-I/5-Recursion-Backtracking)
+	6. [Dynamic Programming](./Algorithm-I/6-Dynamic-Programming)
+	7. [Bit Manipulation](./Algorithm-I/7-Bit-Manipulation)
+3. [Algorithm II](./Algorithm-II)
+	1. [Binary Search](./Algorithm-II/1-Binary-Search)
+	2. [Two Pointers](./Algorithm-II/2-Two-Pointers)
+	3. [Sliding Window](./Algorithm-II/3-Sliding-Window)
+	4. [BFS and DFS](./Algorithm-II/4-BFS-and-DFS)
+	5. [Recursion/Backtracking](./Algorithm-II/5-Recursion-Backtracking)
+	6. [Dynamic Programming](./Algorithm-II/6-Dynamic-Programming)
+	7. [Bit Manipulation](./Algorithm-II/7-Bit-Manipulation)
+	8. [Others](./Algorithm-II/8-Others)
+4. [Dynamic Programming I](./Dynamic-Programming-I)
