@@ -3,12 +3,12 @@ package leetcodingchallenge.january2022;
 import java.util.HashMap;
 
 /**
- * Date: Jan 22, 2022
+ * Date: Jan 23, 2022
  * 1510. Stone Game IV
  * https://leetcode.com/problems/stone-game-iv/
  */
 
-// TODO: review official solution and time complexity analyze
+// TODO: review official solution, implement DP approach and analyze time complexity
 
 public class P1510 {
     // memoization approach
