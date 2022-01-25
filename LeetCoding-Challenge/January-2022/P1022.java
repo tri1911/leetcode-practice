@@ -14,7 +14,6 @@ import java.util.Deque;
 // TODO: implement optimized solution with constant space using Morris Preorder Traversal
 
 public class P1022 {
-
     // Recursive pre-order traversal
     // time: O(n) & space: O(height)
     private int rootToLeaf = 0;
