@@ -18,9 +18,7 @@ for file in $SOURCE/*.java
 do
 	base_name=`basename $file .java`.java # get the base name of java file
 	new_link="$2/$base_name"
-	if [ -f "$new_link" ]; then
-		echo "$base_name already exists in $2"
-	else
+	if [ ! -f "$new_link" ]; then
 		echo "Linking file $base_name from $1 to $2..."
 		ln $file $new_link
 	fi

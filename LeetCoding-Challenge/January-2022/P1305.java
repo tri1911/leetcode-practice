@@ -9,7 +9,7 @@ import java.util.List;
  * https://leetcode.com/problems/all-elements-in-two-binary-search-trees/
  */
 
-// TODO: check out the optimized solution...
+// TODO: check out the optimized solution (using Morris Traversal?)
 
 public class P1305 {
     // my own solution
@@ -60,3 +60,8 @@ public class P1305 {
         }
     }
 }
+
+/**
+ * reference
+ * https://leetcode.com/problems/all-elements-in-two-binary-search-trees/discuss/1719894/Daily-LeetCoding-Challenge-January-Day-26
+ */
