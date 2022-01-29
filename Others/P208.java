@@ -1,22 +1,21 @@
-package leetcodingchallenge.january2022;
+package others;
 
 /**
  * Date: Jan 28, 2022
- * 211. Design Add and Search Words Data Structure
- * https://leetcode.com/problems/design-add-and-search-words-data-structure/
+ * 208. Implement Trie (Prefix Tree)
+ * https://leetcode.com/problems/implement-trie-prefix-tree/
  */
 
-// TODO: analyze time complexity and check out the better solution
-
-// using Trie Data Structure
-public class P211 {
+class P208 {
     private TrieNode root;
 
-    public P211() {
+    public P208() {
         root = new TrieNode();
     }
 
-    public void addWord(String word) {
+    // time: O(m) where m is the length of word
+    // space: O(m)
+    public void insert(String word) {
         TrieNode current = root;
         for (char ch : word.toCharArray()) {
             if (!current.containsKey(ch)) {
@@ -27,25 +26,31 @@ public class P211 {
         current.setEnd();
     }
 
-    // time: O(n + 26 ^ n)
-    // space: O(1)?
-    public boolean search(String word) {
-        return backtracking(root, 0, word);
+    // time: O(m)
+    // space: O(1)
+    private TrieNode prefixSearch(String prefix) {
+        TrieNode current = root;
+        for (char ch : prefix.toCharArray()) {
+            if (current.containsKey(ch)) {
+                current = current.get(ch);
+            } else {
+                return null;
+            }
+        }
+        return current;
     }
 
-    // helper function
-    private boolean backtracking(TrieNode head, int currentIndex, String word) {
-        if (currentIndex == word.length()) return head.isEnd();
-        char currentChar = word.charAt(currentIndex);
-        if (currentChar == '.') {
-            for (char ch = 'a'; ch <= 'z'; ch++) {
-                if (head.containsKey(ch) && backtracking(head.get(ch), currentIndex + 1, word)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return head.containsKey(currentChar) && backtracking(head.get(currentChar), currentIndex + 1, word);
+    // time: O(m)
+    // space: O(1)
+    public boolean search(String word) {
+        TrieNode node = prefixSearch(word);
+        return node != null && node.isEnd();
+    }
+
+    // time: O(m)
+    // space: O(1)
+    public boolean startsWith(String prefix) {
+        return prefixSearch(prefix) != null;
     }
 
     // TrieNode definition
@@ -83,5 +88,5 @@ public class P211 {
 
 /**
  * reference
- * https://www.youtube.com/watch?v=h-F2jRUzpBo
+ * https://leetcode.com/problems/implement-trie-prefix-tree/solution/
  */
