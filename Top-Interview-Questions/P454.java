@@ -39,7 +39,7 @@ public class P454 {
     // optimized implementation - only need 1 map
     // time complexity: O(n^2)
     // space complexity: O(n^2)
-    public int fourSumCount(int[] nums1, int[] nums2, int[] nums3, int[] nums4) {
+    public int _fourSumCount(int[] nums1, int[] nums2, int[] nums3, int[] nums4) {
         int n = nums1.length, sum, ans = 0;
         Map<Integer, Integer> counter = new HashMap<>();
         for (int i = 0; i < n; i++) {
@@ -51,10 +51,22 @@ public class P454 {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 sum = nums3[i] + nums4[j];
-                if (counter.containsKey(-sum))
-                    ans += counter.get(-sum);
+                if (counter.containsKey(-sum)) ans += counter.get(-sum);
             }
         }
+        return ans;
+    }
+
+    // redo on Feb 3, 2022
+    public int fourSumCount(int[] nums1, int[] nums2, int[] nums3, int[] nums4) {
+        Map<Integer, Integer> hash = new HashMap<>();
+        int ans = 0;
+        for (int num1 : nums1)
+            for (int num2 : nums2)
+                hash.put(num1 + num2, hash.getOrDefault(num1 + num2, 0) + 1);
+        for (int num3 : nums3)
+            for (int num4 : nums4)
+                if (hash.containsKey(-(num3 + num4))) ans += hash.get(-(num3 + num4));
         return ans;
     }
 

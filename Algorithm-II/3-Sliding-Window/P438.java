@@ -2,12 +2,12 @@ package algorithm2.slidingWindow;
 
 import java.util.*;
 
-// date: Dec 14, 2021
-// 438. Find All Anagrams in a String
-// https://leetcode.com/problems/find-all-anagrams-in-a-string/
+/**
+ * Date: Dec 14, 2021 - Redo: Feb 02, 2022
+ * 438. Find All Anagrams in a String
+ * https://leetcode.com/problems/find-all-anagrams-in-a-string/
+ */
 
-// time complexity: O(n)
-// space complexity: O(1)
 public class P438 {
     /*  First attempt
         public static List<Integer> findAnagrams(String s, String p) {
@@ -64,7 +64,7 @@ public class P438 {
      */
 
     // optimized solution (reference from Nick's video)
-    public static List<Integer> findAnagrams(String s, String p) {
+    public static List<Integer> _findAnagrams(String s, String p) {
         int sLen = s.length(), pLen = p.length();
         List<Integer> ans = new ArrayList<>();
         if (sLen < pLen) return ans;
@@ -75,21 +75,41 @@ public class P438 {
         int target = pLen;
         while (right < sLen) {
             int index = s.charAt(right) - 'a';
-            if (counters[index] >= 1)
-                target--;
+            if (counters[index] >= 1) target--;
             counters[index]--;
             right++;
 
-            if (target == 0)
-                ans.add(left);
+            if (target == 0) ans.add(left);
 
             if (right - left == pLen) {
                 index = s.charAt(left) - 'a';
-                if (counters[index] >= 0)
-                    target++;
+                if (counters[index] >= 0) target++;
                 counters[index]++;
                 left++;
             }
+        }
+        return ans;
+    }
+
+    // Redo on Feb 2, 2022
+    // time: O(n)
+    // space: O(1) since counter array always be 26
+    public static List<Integer> findAnagrams(String s, String p) {
+        int sLen = s.length(), pLen = p.length();
+        List<Integer> ans = new ArrayList<>();
+        if (sLen < pLen) return ans;
+
+        int[] counter = new int[26];
+        int target = pLen;
+        for (int i = 0; i < pLen; i++) counter[p.charAt(i) - 'a']++;
+        for (int i = 0; i < pLen; i++) if (--counter[s.charAt(i) - 'a'] >= 0) target--;
+        if (target == 0) ans.add(0);
+
+        for (int last = pLen; last < sLen; last++) {
+            int first = last - pLen + 1;
+            if (++counter[s.charAt(first - 1) - 'a'] > 0) target++;
+            if (--counter[s.charAt(last) - 'a'] >= 0) target--;
+            if (target == 0) ans.add(first);
         }
         return ans;
     }
@@ -99,8 +119,7 @@ public class P438 {
         System.out.println("Expect: [0, 1, 2]. Output: " + findAnagrams("abab", "ab"));
         System.out.println("Expect: []. Output: " + findAnagrams("aacbebabacd", "bbb"));
         System.out.println("Expect: [2]. Output: " + findAnagrams("bpaa", "aa"));
-        System.out.println("Expect: []. Output: " + findAnagrams("afdkljflsdkjfsdlkjfdslkjfdslkjfkljlkjlkfdjslkfjsdlkjsdflksdjflkdsjfldskjksldfjlksdjflkdsjfsjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjfsdfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-                "z"));
+        System.out.println("Expect: []. Output: " + findAnagrams("afdkljflsdkjfsdlkjfdslkjfdslkjfkljlkjlkfdjslkfjsdlkjsdflksdjflkdsjfldskjksldfjlksdjflkdsjfsjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjfsdfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "z"));
     }
 }
 
