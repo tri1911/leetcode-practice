@@ -1,7 +1,7 @@
 package others;
 
 /**
- * Date: Jan 31, 2022
+ * Date:
  * 2035. Partition Array Into Two Arrays to Minimize Sum Difference
  * https://leetcode.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference/
  */
