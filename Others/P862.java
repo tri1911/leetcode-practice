@@ -34,3 +34,8 @@ public class P862 {
         System.out.println("Expected: 2. Received: " + obj.shortestSubarray(new int[]{48, 99, 37, 4, -31}, 140));
     }
 }
+
+/**
+ * reference
+ * https://leetcode.com/problems/balanced-binary-tree/discuss/35691/The-bottom-up-O(N)-solution-would-be-better
+ */
