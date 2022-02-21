@@ -42,3 +42,8 @@ public class P110 {
         }
     }
 }
+
+/**
+ * reference
+ * https://leetcode.com/problems/balanced-binary-tree/discuss/35691/The-bottom-up-O(N)-solution-would-be-better
+ */
