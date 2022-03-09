@@ -1,15 +1,17 @@
 package algorithm2.twoPointers;
 
-// date: Dec 14, 2021
-// 82. Remove Duplicates from Sorted List II
-// https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/
+/**
+ * date: Dec 14, 2021 - redo on March 08, 2022
+ * 82. Remove Duplicates from Sorted List II
+ * https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/
+ */
 
-// time complexity: O(n)
-// space complexity: O(1)
 public class P82 {
-    public static ListNode deleteDuplicates(ListNode head) {
-        if (head == null)
-            return null;
+    // first attempt
+    // time: O(n)
+    // space: O(1)
+    public static ListNode _deleteDuplicates(ListNode head) {
+        if (head == null) return null;
         ListNode slow = new ListNode(0, head);
         ListNode fast = head;
         while (fast.next != null) {
@@ -34,56 +36,43 @@ public class P82 {
         return head;
     }
 
-    // TODO: Redo with the Leetcode solution (using Sentinel Head + Predecessor approach)
-    // https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/solution/
-    public ListNode deleteDuplicatesSolution(ListNode head) {
-        // sentinel
-        ListNode sentinel = new ListNode(0, head);
-
-        // predecessor = the last node
-        // before the sublist of duplicates
-        ListNode pred = sentinel;
-
-        while (head != null) {
-            // if it's a beginning of duplicates sublist
-            // skip all duplicates
-            if (head.next != null && head.val == head.next.val) {
-                // move till the end of duplicates sublist
-                while (head.next != null && head.val == head.next.val) {
-                    head = head.next;
-                }
-                // skip all duplicates
-                pred.next = head.next;
-                // otherwise, move predecessor
+    // redo on March 08, 2022
+    public ListNode deleteDuplicates(ListNode head) {
+        ListNode dummy = new ListNode(0, head);
+        ListNode prev = dummy, current = head;
+        while (current != null) {
+            if (current.next != null && current.val == current.next.val) {
+                while (current.next != null && current.val == current.next.val) current = current.next;
+                prev.next = current.next;
             } else {
-                pred = pred.next;
+                prev = prev.next;
             }
-
-            // move forward
-            head = head.next;
+            current = current.next;
         }
-        return sentinel.next;
+        return dummy.next;
     }
 
     public static void main(String[] args) {
+        P82 obj = new P82();
+        
         int[] nums = {1, 2, 3, 3, 4, 4, 5};
-        ListNode head = createList(nums);
-        System.out.println("Expect: [1,2,5]. Received: " + printList(deleteDuplicates(head)));
+        ListNode head = obj.createList(nums);
+        System.out.println("Expect: [1,2,5]. Received: " + obj.printList(obj.deleteDuplicates(head)));
 
         nums = new int[]{1, 1, 1, 2, 3};
-        head = createList(nums);
-        System.out.println("Expect: [2,3]. Received: " + printList(deleteDuplicates(head)));
+        head = obj.createList(nums);
+        System.out.println("Expect: [2,3]. Received: " + obj.printList(obj.deleteDuplicates(head)));
 
         nums = new int[]{1, 1};
-        head = createList(nums);
-        System.out.println("Expect: []. Received: " + printList(deleteDuplicates(head)));
+        head = obj.createList(nums);
+        System.out.println("Expect: []. Received: " + obj.printList(obj.deleteDuplicates(head)));
 
         nums = new int[]{1, 2, 2};
-        head = createList(nums);
-        System.out.println("Expect: [1]. Received: " + printList(deleteDuplicates(head)));
+        head = obj.createList(nums);
+        System.out.println("Expect: [1]. Received: " + obj.printList(obj.deleteDuplicates(head)));
     }
 
-    private static ListNode createList(int[] nums) {
+    private ListNode createList(int[] nums) {
         ListNode head = null;
         ListNode current = null;
         for (int value : nums) {
@@ -98,7 +87,7 @@ public class P82 {
         return head;
     }
 
-    private static String printList(ListNode head) {
+    private String printList(ListNode head) {
         ListNode current = head;
         String output = "[";
         while (current != null) {
@@ -127,3 +116,7 @@ public class P82 {
     }
 }
 
+/**
+ * reference
+ * https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/solution/
+ */
