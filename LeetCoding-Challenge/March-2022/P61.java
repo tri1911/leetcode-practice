@@ -54,8 +54,3 @@ public class P61 {
         }
     }
 }
-
-/**
- * reference
- * https://leetcode.com/problems/rotate-list/discuss/22827/Java-clean-solution-only-one-pointer-used
- */
