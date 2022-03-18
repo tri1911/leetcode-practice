@@ -1,9 +1,10 @@
 package others;
 
 import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
- * Date: Jan 23, 2022
+ * Date: Jan 23, 2022 - Redo on March 18, 2022 (Leetcode daily challenge)
  * Remove Duplicate Letters (is the same as Problem 1081)
  * https://leetcode.com/problems/remove-duplicate-letters/
  */
@@ -11,7 +12,7 @@ import java.util.ArrayDeque;
 public class P316 {
     // time: O(n)
     // space: O(1)
-    public String removeDuplicateLetters(String s) {
+    public String _removeDuplicateLetters(String s) {
         int[] lastOccur = new int[26];
         for (int i = 0; i < s.length(); i++) lastOccur[s.charAt(i) - 'a'] = i;
         ArrayDeque<Integer> stack = new ArrayDeque<>();
@@ -27,6 +28,30 @@ public class P316 {
         for (int val : stack)
             sb.append((char) (val + 'a'));
         return sb.reverse().toString();
+    }
+
+    // redo
+    public String removeDuplicateLetters(String s) {
+        int n = s.length();
+        // find the last occurrence of characters within s
+        int[] lastIdx = new int[26];
+        for (int i = 0; i < n; i++) lastIdx[s.charAt(i) - 'a'] = i;
+        // keep track whether a character was added into the solution
+        boolean[] added = new boolean[26];
+        // use stack to store valid characters til ith
+        Deque<Integer> stack = new ArrayDeque<>();
+        for (int i = 0; i < n; i++) {
+            int cur = s.charAt(i) - 'a';
+            if (!added[cur]) {
+                while (!stack.isEmpty() && stack.peek() > cur && lastIdx[stack.peek()] > i) added[stack.pop()] = false;
+                stack.push(cur);
+                added[cur] = true;
+            }
+        }
+        // make solution from result stack
+        StringBuilder sb = new StringBuilder();
+        while (!stack.isEmpty()) sb.append((char) (stack.pollLast() + 'a'));
+        return sb.toString();
     }
 
     public static void main(String[] args) {

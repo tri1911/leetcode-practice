@@ -31,6 +31,8 @@ public class P856 {
         return ans;
     }
 
+    // TODO: read official solution
+
     public static void main(String[] args) {
         P856 obj = new P856();
         System.out.println("Expected: 1. Received: " + obj.scoreOfParentheses("()"));
@@ -39,3 +41,8 @@ public class P856 {
         System.out.println("Expected: 6. Received: " + obj.scoreOfParentheses("(()(()))"));
     }
 }
+
+/**
+ * reference
+ * https://leetcode.com/problems/score-of-parentheses/solution/
+ */
