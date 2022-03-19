@@ -1,22 +1,21 @@
 package others;
 
 import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Date: Jan 22, 2022
+ * Date: Jan 22, 2022 - Redo on March 19, 2022
  * 496. Next Greater Element I
  * https://leetcode.com/problems/next-greater-element-i/
  */
-
-// TODO: check out better implementation
 
 public class P496 {
     // monotonic stack
     // time: O(n)
     // space: O(n)
-    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+    public int[] _nextGreaterElement(int[] nums1, int[] nums2) {
         int m = nums1.length, n = nums2.length;
         // stack to keep possible first greater candidates for the current checking
         ArrayDeque<Integer> stack = new ArrayDeque<>();
@@ -33,6 +32,26 @@ public class P496 {
         for (int i = 0; i < m; i++)
             answer[i] = hashTable.get(nums1[i]);
         return answer;
+    }
+
+    // redo on March 19, 2022
+    // time: O(n1 + n2)
+    // space: O(1)
+    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        int n1 = nums1.length, n2 = nums2.length;
+        int[] hash = new int[10001];
+        // find the greater element in nums2 array - takes O(n2)
+        Deque<Integer> stack = new ArrayDeque<>();
+        for (int i = n2 - 1; i >= 0; i--) {
+            int current = nums2[i];
+            while (!stack.isEmpty() && stack.peek() < current) stack.pop();
+            hash[current] = stack.isEmpty() ? -1 : stack.peek();
+            stack.push(current);
+        }
+        // populate solution array - takes O(n1)
+        int[] ans = new int[n1];
+        for (int i = 0; i < n1; i++) ans[i] = hash[nums1[i]];
+        return ans;
     }
 }
 
