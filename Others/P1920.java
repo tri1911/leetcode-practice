@@ -8,7 +8,7 @@ import java.util.Arrays;
  * https://leetcode.com/problems/build-array-from-permutation/
  */
 
-public class P1290 {
+public class P1920 {
     // simple approach
     // time & space: O(n)
     public int[] _buildArray(int[] nums) {
@@ -40,7 +40,7 @@ public class P1290 {
     }
 
     public static void main(String[] args) {
-        P1290 obj = new P1290();
+        P1920 obj = new P1920();
         System.out.println("Expected: [0, 1, 2, 4, 5, 3]\nReceived: " + Arrays.toString(obj.buildArray(new int[]{0, 2, 1, 5, 3, 4})));
         System.out.println("----");
         System.out.println("Expected: [4, 5, 0, 1, 2, 3]\nReceived: " + Arrays.toString(obj.buildArray(new int[]{5, 0, 1, 2, 3, 4})));
