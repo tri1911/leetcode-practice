@@ -6,6 +6,8 @@ package leetcodingchallenge.march2022;
  * https://leetcode.com/problems/split-array-largest-sum/
  */
 
+// TODO: checkout dynamic programming approaches & review binary search approaches
+
 public class P410 {
     // Binary Search approach - similar to the MinMaxDivision problem on Codility
     // time: O(n*log(total))
@@ -49,4 +51,5 @@ public class P410 {
 /**
  * reference
  * https://leetcode.com/problems/split-array-largest-sum/solution/
+ * https://app.codility.com/demo/results/training236TBU-9XN/
  */
