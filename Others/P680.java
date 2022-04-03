@@ -1,7 +1,7 @@
 package others;
 
 /**
- * Date: Feb 25, 2022
+ * Date: Feb 25, 2022 - Redo on April 01, 2022
  * 680. Valid Palindrome II
  * https://leetcode.com/problems/valid-palindrome-ii/
  */
@@ -10,20 +10,21 @@ public class P680 {
     // time: O(n)
     // space: O(1)
     public boolean validPalindrome(String s) {
-        int n = s.length();
-        for (int i = 0; i < n; i++) {
-            int j = n - 1 - i;
-            if (s.charAt(i) != s.charAt(n - 1 - i)) {
-                return validPalindrome(s, i, j - 1) || validPalindrome(s, i + 1, j); // takes O(n)
+        int left = 0, right = s.length() - 1;
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) {
+                return check(s, left, right - 1) || check(s, left + 1, right);
             }
+            left++;
+            right--;
         }
         return true;
     }
 
-    // helper function
-    public boolean validPalindrome(String s, int first, int last) {
-        while (first < last) {
-            if (s.charAt(first++) != s.charAt(last--)) {
+    // helper function (time: O(n))
+    private boolean check(String s, int left, int right) {
+        while (left < right) {
+            if (s.charAt(left++) != s.charAt(right--)) {
                 return false;
             }
         }

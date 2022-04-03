@@ -9,25 +9,33 @@ import java.util.List;
  * https://leetcode.com/problems/binary-watch/
  */
 
+// TODO: implement using backtracking, bit manipulation instead
+
 public class P401 {
-    // time:
-    // space:
+    // time: O(n)
+    // space: O(1)
     public List<String> readBinaryWatch(int turnedOn) {
         List<String> ans = new ArrayList<>();
         if (turnedOn > 8) return ans;
-        final int[][] buckets = {{0}, {1, 2, 4, 8, 16, 32}, {3, 5, 6, 9, 10, 12, 17, 18, 20, 24, 33, 34, 36, 40, 48}, {7, 11, 13, 14, 19, 21, 22, 25, 26, 28, 35, 37, 38, 41, 42, 44, 49, 50, 52, 56}, {15, 23, 27, 29, 30, 39, 43, 45, 46, 51, 53, 54, 57, 58}, {31, 47, 55, 59},};
-        int hourOnes = Math.min(turnedOn, 3); // cap the number of 1s in hours to 3
-        for (int i = 0; i <= hourOnes; i++) {
+        final int[][] buckets = {{0}, {1, 2, 4, 8, 16, 32}, {3, 5, 6, 9, 10, 12, 17, 18, 20, 24, 33, 34, 36, 40, 48}, {7, 11, 13, 14, 19, 21, 22, 25, 26, 28, 35, 37, 38, 41, 42, 44, 49, 50, 52, 56}, {15, 23, 27, 29, 30, 39, 43, 45, 46, 51, 53, 54, 57, 58}, {31, 47, 55, 59}};
+        // i <= 3
+        // turnedOn - i <= 5 => i >= turnedOn - 5
+        for (int i = Math.max(turnedOn - 5, 0); i <= Math.min(turnedOn, 3); i++) {
             StringBuilder sb;
             int j = turnedOn - i;
             for (int hour : buckets[i]) {
-                sb = new StringBuilder();
-                sb.append(hour).append(':');
-                for (int minute : buckets[j]) {
-                    if (minute < 10) sb.append('0').append(minute);
-                    else sb.append(minute);
+                if (hour < 12) {
+                    sb = new StringBuilder();
+                    sb.append(hour).append(':');
+                    for (int minute : buckets[j]) {
+                        if (minute < 10) sb.append('0').append(minute);
+                        else sb.append(minute);
+                        ans.add(sb.toString());
+                        sb.deleteCharAt(sb.length() - 1);
+                        sb.deleteCharAt(sb.length() - 1);
+
+                    }
                 }
-                ans.add(sb.toString());
             }
         }
         return ans;
