@@ -1,29 +1,31 @@
 package algorithm2.twoPointers;
 
-// date: Dec 17, 2021
-// 11. Container With Most Water
-// https://leetcode.com/problems/container-with-most-water/
+/**
+ * Date: Dec 17, 2021 - redo on April 04, 2022
+ * 11. Container With Most Water
+ * https://leetcode.com/problems/container-with-most-water/
+ */
 
-// TODO: Redo to gain more understand of the solution
 
-// time complexity: O(n)
-// space complexity: O(1)
 public class P11 {
-    // first attempt (Wrong Answer)
-//    public static int _maxArea(int[] height) {
-//        int left = 0, right = height.length - 1;
-//        int ans = Integer.MIN_VALUE;
-//        while (left < right) {
-//            int minHeight = Math.min(height[left], height[right]);
-//            ans = Math.max(ans, (right - left) * minHeight);
-//            if (Math.min(height[left + 1], height[right]) > Math.min(height[left], height[right - 1]))
-//                left++;
-//            else
-//                right--;
-//        }
-//        return ans;
-//    }
+    /*  first attempt (Wrong Answer)
+        public static int _maxArea(int[] height) {
+            int left = 0, right = height.length - 1;
+            int ans = Integer.MIN_VALUE;
+            while (left < right) {
+                int minHeight = Math.min(height[left], height[right]);
+                ans = Math.max(ans, (right - left) * minHeight);
+                if (Math.min(height[left + 1], height[right]) > Math.min(height[left], height[right - 1]))
+                    left++;
+                else
+                    right--;
+            }
+            return ans;
+        }
+     */
 
+    // time: O(n)
+    // space: O(1)
     public static int maxArea(int[] height) {
         int ans = Integer.MIN_VALUE;
         int left = 0, right = height.length - 1;
@@ -56,5 +58,8 @@ public class P11 {
     }
 }
 
-// reference
-// https://leetcode.com/problems/container-with-most-water/discuss/200246/Proof-by-formula (Author: https://leetcode.com/chipbk10/)
+/**
+ * reference
+ * https://leetcode.com/problems/container-with-most-water/discuss/200246/Proof-by-formula (Author: https://leetcode.com/chipbk10/)
+ */
+
