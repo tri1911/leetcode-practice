@@ -3,7 +3,7 @@ package topInterviewQs;
 import java.util.Arrays;
 
 /**
- * Date: April 08, 2022
+ * Date: April 09, 2022
  * 324. Wiggle Sort II
  * https://leetcode.com/problems/wiggle-sort-ii/
  */
@@ -29,6 +29,9 @@ public class P324 {
 
 /**
  * reference
+ * https://leetcode.com/problems/wiggle-sort-ii/discuss/77677/O(n)%2BO(1)-after-median-Virtual-Indexing
  * https://youtu.be/BP7GCALO2v8
  * https://rcoh.me/posts/linear-time-median-finding/
+ * https://stackoverflow.com/questions/11068429/nth-element-implementations-complexities
+ * https://leetcode.com/problems/top-k-frequent-elements/solution/
  */
