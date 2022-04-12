@@ -1,12 +1,10 @@
 package topInterviewQs;
 
 /**
- * Date: Feb 11, 2022
+ * Date: Feb 11, 2022 - Redo on April 12, 2022
  * 289. Game of Life
  * https://leetcode.com/problems/game-of-life/
  */
-
-// TODO: review the approach that represents the 2 state and use bit manipulation to update bit (really brilliant approach!)
 
 public class P289 {
     // use 2 bits to represent the next state and current state
@@ -22,7 +20,7 @@ public class P289 {
 
     // important tricks
     // - get the current state using `& 1`
-    // - update the next state using ``
+    // - update the next state by setting to 10, 11
 
     // time: O(mn)
     // space: O(1)
