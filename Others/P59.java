@@ -3,12 +3,10 @@ package others;
 import java.util.Arrays;
 
 /**
- * Date:
+ * Date: Feb 08, 2022 - Redo: April 12, 2022
  * 59. Spiral Matrix II
  * https://leetcode.com/problems/spiral-matrix-ii/
  */
-
-// TODO: check out the official solution if have time
 
 public class P59 {
     // my own solution
