@@ -39,7 +39,13 @@ public class P215 {
         return nums[n - k];
     }
 
-    private void quickSelect(int[] nums, int left, int right, int target) {
+    public static void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
+
+    public static void quickSelect(int[] nums, int left, int right, int target) {
         // base case: there is only one element in the list
         if (left == right) return;
         // 1. randomly select the pivot index
@@ -55,7 +61,7 @@ public class P215 {
     }
 
     // helper function to partition the array based on the pivot value
-    private int partition(int[] nums, int left, int right, int pivotIdx) {
+    public static int partition(int[] nums, int left, int right, int pivotIdx) {
         int pivotVal = nums[pivotIdx];
         // 1. swap the pivot idx with the last element
         swap(nums, pivotIdx, right);
@@ -70,12 +76,6 @@ public class P215 {
         swap(nums, right, j);
         // 4. return the final pivot index
         return j;
-    }
-
-    private void swap(int[] nums, int i, int j) {
-        int tmp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = tmp;
     }
 
     public static void main(String[] args) {
