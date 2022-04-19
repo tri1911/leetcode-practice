@@ -1,10 +1,12 @@
 package topInterviewQs;
 
-// Date: Jan 9, 2022
-// 230. the Kth Smallest Element in a BST
-// https://leetcode.com/problems/kth-smallest-element-in-a-bst/
-
 import java.util.*;
+
+/**
+ * Date: Jan 9, 2022 - Redo on April 17, 2022
+ * 230. the Kth Smallest Element in a BST
+ * https://leetcode.com/problems/kth-smallest-element-in-a-bst/
+ */
 
 // TODO: If the BST is modified often (i.e., we can do insert and delete operations) and you need to find the kth smallest frequently, how would you optimize?
 // TODO: use max heap?
@@ -28,7 +30,7 @@ public class P230 {
         }
      */
 
-    // TODO: review this implementation
+    // TODO: redo iterative implementation
     // Approach 2: Iterative Inorder Traversal
     // time complexity: O(height + k)
     // space complexity: O(height)
@@ -78,5 +80,7 @@ public class P230 {
     }
 }
 
-// reference
-// https://leetcode.com/problems/kth-smallest-element-in-a-bst/solution/
+/**
+ * reference
+ * https://leetcode.com/problems/kth-smallest-element-in-a-bst/solution/
+ */
