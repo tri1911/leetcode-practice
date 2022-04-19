@@ -9,7 +9,7 @@
 	- https://stackoverflow.com/questions/5502916/explain-morris-inorder-tree-traversal-without-using-stacks-or-recursion
 
 # Snippets to review
-## Iterative In-order Traversal Implementation
+## Iterative In-order Traversal Implementation - Credit: https://leetcode.com/problems/binary-tree-inorder-traversal/solution/
 ```java
 public List<Integer> inorderTraversal(TreeNode root) {
     List<Integer> res = new ArrayList<>();

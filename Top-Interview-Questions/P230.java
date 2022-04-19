@@ -12,7 +12,6 @@ import java.util.*;
 // TODO: use max heap?
 
 public class P230 {
-
     /*  Approach 1: recursive in-order traversal with extra array
         // time complexity: O(n)
         // space complexity: O(n)
@@ -30,22 +29,22 @@ public class P230 {
         }
      */
 
-    // TODO: redo iterative implementation
     // Approach 2: Iterative Inorder Traversal
     // time complexity: O(height + k)
     // space complexity: O(height)
     public int kthSmallest(TreeNode root, int k) {
-        LinkedList<TreeNode> stack = new LinkedList<>();
-
-        while (true) {
-            while (root != null) {
-                stack.push(root);
-                root = root.left;
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        TreeNode current = root;
+        while (current != null || !stack.isEmpty()) {
+            while (current != null) {
+                stack.push(current);
+                current = current.left;
             }
-            root = stack.pop();
-            if (--k == 0) return root.val;
-            root = root.right;
+            current = stack.pop();
+            if (--k == 0) return current.val;
+            current = current.right;
         }
+        return -1;
     }
 
     static private class TreeNode {
