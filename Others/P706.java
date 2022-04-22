@@ -1,7 +1,9 @@
 package others;
 
+import java.util.Arrays;
+
 /**
- * Date: March 30, 2022
+ * Date: March 30, 2022 - Redo: April 21, 2022
  * 706. Design HashMap
  * https://leetcode.com/problems/design-hashmap/
  */
@@ -9,11 +11,11 @@ package others;
 // TODO: implement with collision resolver (chaining, linked-list ...)
 
 public class P706 {
-    private final int[] map;
+    private int[] map;
 
     public P706() {
         map = new int[1_000_001];
-        for (int i = 0; i < map.length; i++) map[i] = -1;
+        Arrays.fill(map, -1);
     }
 
     public void put(int key, int value) {
