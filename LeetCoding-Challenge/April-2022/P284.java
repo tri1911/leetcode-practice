@@ -39,3 +39,8 @@ public class P284 implements Iterator<Integer> {
         return peekVal != null;
     }
 }
+
+/**
+ * references
+ * https://leetcode.com/problems/peeking-iterator/discuss/72558/Concise-Java-Solution
+ */
