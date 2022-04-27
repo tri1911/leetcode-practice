@@ -11,3 +11,8 @@ public class P1584 {
         return 0;
     }
 }
+
+/**
+ * references
+ * https://leetcode.com/problems/min-cost-to-connect-all-points/solution/
+ */

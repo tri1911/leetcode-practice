@@ -14,6 +14,9 @@
 ## Graph
 
 - [Mininum Spanning Tree - Kruskal & Prim](https://leetcode.com/problems/min-cost-to-connect-all-points/solution/)
+  - [1584. Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/solution/)
+- [Disjoint Set Union (DSU)](https://leetcode.com/explore/learn/card/graph/618/disjoint-set/)
+  - [1202. Smallest String With Swaps](https://leetcode.com/problems/smallest-string-with-swaps/solution/)
 
 # Snippets to review
 
@@ -21,18 +24,18 @@
 
 ```java
 public List<Integer> inorderTraversal(TreeNode root) {
-    List<Integer> res = new ArrayList<>();
+    List<Integer> ans = new ArrayList<>();
     Stack<TreeNode> stack = new Stack<>();
-    TreeNode curr = root;
-    while (curr != null || !stack.isEmpty()) {
-        while (curr != null) {
-            stack.push(curr);
-            curr = curr.left;
+    TreeNode current = root;
+    while (current != null || !stack.isEmpty()) {
+        while (current != null) {
+            stack.push(current);
+            current = current.left;
         }
-        curr = stack.pop();
-        res.add(curr.val);
-        curr = curr.right;
+        current = stack.pop();
+        ans.add(current.val);
+        current = current.right;
     }
-    return res;
+    return ans;
 }
 ```
