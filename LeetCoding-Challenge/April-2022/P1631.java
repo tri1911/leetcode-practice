@@ -7,7 +7,14 @@ package leetcodingchallenge.april2022;
  */
 
 public class P1631 {
+    // time:
+    // space:
     public int minimumEffortPath(int[][] heights) {
         return 1;
     }
 }
+
+/**
+ * references
+ * https://leetcode.com/problems/path-with-minimum-effort/discuss/909017/JavaPython-Dijikstra-Binary-search-Clean-and-Concise
+ */
