@@ -45,3 +45,23 @@ public class P1209 {
         return "";
     }
 }
+
+/* Reference
+    public String removeDuplicates(String s, int k) {
+        char[] cs = s.toCharArray();
+        int[] counter = new int[cs.length];
+        int slowI = 0;
+        for (int i = 0; i < cs.length; i++, slowI++) {
+            cs[slowI] = cs[i]; // move new char to left
+            if (slowI > 0 && cs[slowI - 1] == cs[i]) { // if old char is the same as new char
+                counter[slowI] = counter[slowI - 1] + 1; // increase counter
+            } else {
+                counter[slowI] = 1; // otherwise, start a new counter
+            }
+            if (counter[slowI] == k) { // reach to threshold
+                slowI -= k; // move slow index backwards
+            }
+        }
+        return new String(cs, 0, slowI);
+    }
+ */
