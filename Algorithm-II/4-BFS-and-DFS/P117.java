@@ -1,79 +1,85 @@
 package algorithm2.bdfAndDfs;
 
-// date: Dec 15, 2021
-// 117. Populating Next Right Pointers in Each Node II
-// https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/
+/**
+ * Date: Dec 15, 2021 - Redo: May 13, 2022
+ * 117. Populating Next Right Pointers in Each Node II
+ * https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/
+ */
 
 // TODO: Look at another precise solution
 // https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/discuss/37828/O(1)-space-O(n)-complexity-Iterative-Solution
 
-//    public Node connect(Node root) {
-//        var dummy = new Node();
-//        Node current = dummy;
-//        Node head = root;
-//
-//        while (root != null) {
-//            if (root.left != null) {
-//                current.next = root.left;
-//                current = current.next;
-//            }
-//            if (root.right != null) {
-//                current.next = root.right;
-//                current = current.next;
-//            }
-//            root = root.next;
-//            if (root == null) {
-//                current = dummy;
-//                root = dummy.next;
-//                dummy.next = null;
-//            }
-//        }
-//        return head;
-//    }
+/*
+    public Node connect(Node root) {
+        var dummy = new Node();
+        Node current = dummy;
+        Node head = root;
+
+        while (root != null) {
+            if (root.left != null) {
+                current.next = root.left;
+                current = current.next;
+            }
+            if (root.right != null) {
+                current.next = root.right;
+                current = current.next;
+            }
+            root = root.next;
+            if (root == null) {
+                current = dummy;
+                root = dummy.next;
+                dummy.next = null;
+            }
+        }
+        return head;
+    }
+     */
+
 
 // First attempt
 // time complexity: O(n)
 // space complexity: O(1)
 public class P117 {
-    // first attempt
-//    public static Node connect(Node root) {
-//        Node firstAtLevel = root;
-//        while (firstAtLevel != null) {
-//            Node current = firstAtLevel;
-//            // connect all children of nodes at the current level
-//            while (current != null) {
-//                Node currentNext = current.next;
-//                while (currentNext != null && currentNext.left == null && currentNext.right == null) {
-//                    currentNext = currentNext.next;
-//                }
-//                if (current.left != null && current.right != null) {
-//                    current.left.next = current.right;
-//                    current.right.next = (currentNext != null) ? ((currentNext.left != null) ? currentNext.left : currentNext.right) : null;
-//                } else if (current.left != null) {
-//                    current.left.next = (currentNext != null) ? ((currentNext.left != null) ? currentNext.left : currentNext.right) : null;
-//                } else if (current.right != null) {
-//                    current.right.next = (currentNext != null) ? ((currentNext.left != null) ? currentNext.left : currentNext.right) : null;
-//                }
-//                current = currentNext;
-//            }
-//            // move down to the next level
-//            while (firstAtLevel.left == null && firstAtLevel.right == null) {
-//                if (firstAtLevel.next != null) {
-//                    firstAtLevel = firstAtLevel.next;
-//                } else {
-//                    return root;
-//                }
-//            }
-//            if (firstAtLevel.left != null) {
-//                firstAtLevel = firstAtLevel.left;
-//            } else {
-//                firstAtLevel = firstAtLevel.right;
-//            }
-//        }
-//        return null;
-//    }
+    /*  first attempt
+        public static Node connect(Node root) {
+            Node firstAtLevel = root;
+            while (firstAtLevel != null) {
+                Node current = firstAtLevel;
+                // connect all children of nodes at the current level
+                while (current != null) {
+                    Node currentNext = current.next;
+                    while (currentNext != null && currentNext.left == null && currentNext.right == null) {
+                        currentNext = currentNext.next;
+                    }
+                    if (current.left != null && current.right != null) {
+                        current.left.next = current.right;
+                        current.right.next = (currentNext != null) ? ((currentNext.left != null) ? currentNext.left : currentNext.right) : null;
+                    } else if (current.left != null) {
+                        current.left.next = (currentNext != null) ? ((currentNext.left != null) ? currentNext.left : currentNext.right) : null;
+                    } else if (current.right != null) {
+                        current.right.next = (currentNext != null) ? ((currentNext.left != null) ? currentNext.left : currentNext.right) : null;
+                    }
+                    current = currentNext;
+                }
+                // move down to the next level
+                while (firstAtLevel.left == null && firstAtLevel.right == null) {
+                    if (firstAtLevel.next != null) {
+                        firstAtLevel = firstAtLevel.next;
+                    } else {
+                        return root;
+                    }
+                }
+                if (firstAtLevel.left != null) {
+                    firstAtLevel = firstAtLevel.left;
+                } else {
+                    firstAtLevel = firstAtLevel.right;
+                }
+            }
+            return null;
+        }
+     */
 
-    // redo on Dec 19, 2021
+    // redo on Dec 19, 2021 & May 13, 2022
     public static Node connect(Node root) {
         if (root == null) return null;
         Node parent = root;
