@@ -1,16 +1,18 @@
 package algorithm2.dynamicProgramming;
 
-// date: Dec 24, 2021
-// 322. Coin Change
-// https://leetcode.com/problems/coin-change/
+/**
+ * Date: Dec 24, 2021 - Redo: May 21, 2022 (Daily challenge)
+ * 322. Coin Change
+ * https://leetcode.com/problems/coin-change/
+ */
 
 import java.util.Arrays;
 
 public class P322 {
     // dynamic programming approach
-    // cannot use greedy approach -> [1, 3, 4] amount = 6 then {4, 1, 1} > {3, 3}  
-    // time complexity: O(amount*n) where n is the length of coins array
-    // space complexity: O(amount)
+    // cannot use greedy approach -> [1, 3, 4] amount = 6 then {4, 1, 1} > {3, 3}
+    // time: O(amount*n) where n is the length of coins array
+    // space: O(amount)
     public int coinChange(int[] coins, int amount) {
         int[] dp = new int[amount + 1];
         Arrays.fill(dp, Integer.MAX_VALUE);
