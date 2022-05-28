@@ -1,8 +1,10 @@
 package topInterviewQs;
 
-// Date: Jan 8, 2022
-// 268. Missing Number
-// https://leetcode.com/problems/missing-number/
+/**
+ * Date: Jan 8, 2022 - Redo: May 28, 2022
+ * 268. Missing Number
+ * https://leetcode.com/problems/missing-number/
+ */
 
 public class P268 {
     /*  First attempt
@@ -33,7 +35,16 @@ public class P268 {
             ans = ans ^ i ^ nums[i];
         return ans;
     }
+
+    // redo on May 28, 2022
+    public int _missingNumber(int[] nums) {
+        int n = nums.length, sum = 0;
+        for (int num : nums) sum += num;
+        return n * (n + 1) / 2 - sum;
+    }
 }
 
-// reference
-// https://leetcode.com/problems/missing-number/discuss/69791/4-Line-Simple-Java-Bit-Manipulate-Solution-with-Explaination
+/**
+ * reference
+ * https://leetcode.com/problems/missing-number/discuss/69791/4-Line-Simple-Java-Bit-Manipulate-Solution-with-Explaination
+ */
