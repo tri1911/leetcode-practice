@@ -1,14 +1,14 @@
 package topInterviewQs;
 
 /**
- * Date: Jan 11, 2022
+ * Date: Jan 11, 2022 - Redo: June 06, 2022
  * 160. Intersection of Two Linked Lists
  * https://leetcode.com/problems/intersection-of-two-linked-lists/
  */
 
 public class P160 {
-    // time complexity: O(m + n)
-    // space complexity: O(1)
+    // time: O(m + n)
+    // space: O(1)
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         if (headA == null || headB == null) return null;
         ListNode p1 = headA, p2 = headB;
