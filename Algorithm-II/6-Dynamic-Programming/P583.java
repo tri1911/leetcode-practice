@@ -1,8 +1,10 @@
 package algorithm2.dynamicProgramming;
 
-// date: Dec 23, 2021
-// 583. Delete Operation for Two Strings
-// https://leetcode.com/problems/delete-operation-for-two-strings/
+/**
+ * Date: Dec 23, 2021 - Redo on Tue, June 14, 2022
+ * 583. Delete Operation for Two Strings
+ * https://leetcode.com/problems/delete-operation-for-two-strings/
+ */
 
 // TODO: check out the leetcode solution with space complexity O(n)
 // https://leetcode.com/problems/delete-operation-for-two-strings/solution/
