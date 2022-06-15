@@ -6,7 +6,7 @@ package algorithm2.dynamicProgramming;
  * https://leetcode.com/problems/delete-operation-for-two-strings/
  */
 
-// TODO: check out the leetcode solution with space complexity O(n)
+// TODO: check out the official solution with space complexity O(n)
 // https://leetcode.com/problems/delete-operation-for-two-strings/solution/
 
 public class P583 {
@@ -28,7 +28,7 @@ public class P583 {
     // optimized solution using dynamic programming
     // time complexity: O(m*n)
     // space complexity: O(m*n)
-    public int minDistance(String word1, String word2) {
+    public int __minDistance(String word1, String word2) {
         int len1 = word1.length(), len2 = word2.length();
         // dp[i][j] denotes the minimum number of steps required
         // to make word1[i...] and word2[j...] the same
@@ -43,6 +43,22 @@ public class P583 {
             }
         }
         return dp[0][0];
+    }
+
+    // optimized solution with O(n) space - Done on June 15, 2022
+    public int minDistance(String word1, String word2) {
+        int len1 = word1.length(), len2 = word2.length();
+        int[] dp = new int[len2 + 1];
+        for (int i = len1; i >= 0; i--) {
+            int[] current = new int[len2 + 1];
+            for (int j = len2; j >= 0; j--) {
+                if (i == len1) current[j] = len2 - j;
+                else if (j == len2) current[j] = len1 - i;
+                else current[j] = word1.charAt(i) == word2.charAt(j) ? dp[j + 1] : 1 + Math.min(dp[j], current[j + 1]);
+            }
+            dp = current;
+        }
+        return dp[0];
     }
 
     public static void main(String[] args) {
