@@ -1,6 +1,6 @@
 # Useful Algorithms
 
-- [Quickselect](https://leetcode.com/problems/top-k-frequent-elements/solution/) (Hoare's selection algorithm)
+- [Quick Select](https://leetcode.com/problems/top-k-frequent-elements/solution/) (Hoare's selection algorithm)
   - https://rcoh.me/posts/linear-time-median-finding/
   - https://youtu.be/BP7GCALO2v8
   - https://stackoverflow.com/questions/11068429/nth-element-implementations-complexities
@@ -13,10 +13,17 @@
 
 ## Graph
 
-- [Mininum Spanning Tree - Kruskal & Prim](https://leetcode.com/problems/min-cost-to-connect-all-points/solution/)
+- [Minimum Spanning Tree - Kruskal & Prim](https://leetcode.com/problems/min-cost-to-connect-all-points/solution/)
   - [1584. Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/solution/)
 - [Disjoint Set Union (DSU)](https://leetcode.com/explore/learn/card/graph/618/disjoint-set/)
   - [1202. Smallest String With Swaps](https://leetcode.com/problems/smallest-string-with-swaps/solution/)
+
+# Useful Data Structures
+
+## Trie
+
+- [208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/solution/)
+- [745. Prefix and Suffix Search](https://leetcode.com/problems/prefix-and-suffix-search/solution/)
 
 # Snippets to review
 
