@@ -6,7 +6,7 @@ package leetcodingchallenge.june2022;
  * https://leetcode.com/problems/prefix-and-suffix-search/
  */
 
-class P745 {
+public class P745 {
     // space: O(arr_len * word_len)
     TrieNode trie; // this is the root
     // overall time: O(arr_len * word_len * word_len)

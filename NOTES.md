@@ -23,7 +23,9 @@
 ## Trie
 
 - [208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/solution/)
+- [211. Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/)
 - [745. Prefix and Suffix Search](https://leetcode.com/problems/prefix-and-suffix-search/solution/)
+- [1268. Search Suggestions System](https://leetcode.com/problems/search-suggestions-system/)
 
 # Snippets to review
 
