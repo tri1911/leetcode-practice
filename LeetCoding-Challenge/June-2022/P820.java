@@ -6,9 +6,7 @@ package leetcodingchallenge.june2022;
  * https://leetcode.com/problems/short-encoding-of-words/
  */
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class P820 {
     // Approach 1: hash table
