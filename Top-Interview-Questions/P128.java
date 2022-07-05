@@ -1,8 +1,10 @@
 package topInterviewQs;
 
-// Date: Jan 8, 2022
-// 128. Longest Consecutive Sequence
-// https://leetcode.com/problems/longest-consecutive-sequence/
+/**
+ * Date: Jan 8, 2022 - redo on July 05, 2022
+ * 128. Longest Consecutive Sequence
+ * https://leetcode.com/problems/longest-consecutive-sequence/
+ */
 
 import java.util.*;
 
@@ -65,5 +67,7 @@ public class P128 {
     }
 }
 
-// reference
-// https://leetcode.com/problems/longest-consecutive-sequence/solution/
+/**
+ * reference
+ * https://leetcode.com/problems/longest-consecutive-sequence/solution/
+ */
