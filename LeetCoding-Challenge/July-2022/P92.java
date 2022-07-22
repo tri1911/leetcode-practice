@@ -28,7 +28,7 @@ public class P92 {
 
         backtracking(rightPointer, left - 1, right - 1);
 
-        if (leftPointer == rightPointer || rightPointer.next = leftPointer) stopSwapping = true;
+        if (leftPointer == rightPointer || rightPointer.next == leftPointer) stopSwapping = true;
 
         if (!stopSwapping) {
             // swapping
