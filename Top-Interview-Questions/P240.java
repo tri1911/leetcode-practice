@@ -1,12 +1,10 @@
 package topInterviewQs;
 
 /**
- * Date: April 06, 2022
+ * Date: April 06, 2022 - redo on July 24, 2022
  * 240. Search a 2D Matrix II
  * https://leetcode.com/problems/search-a-2d-matrix-ii/
  */
-
-// TODO: redo to understand more
 
 public class P240 {
     // time: O(m + n)
