@@ -1,15 +1,16 @@
 package algorithm2.binarySearch;
 
-// Date: Dec 13, 2021
-// 34. Find First and Last Position of Element in Sorted Array
-// https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+/**
+ * Date: Dec 13, 2021 - redo: July 25, 2022 (Daily challenge)
+ * 34. Find First and Last Position of Element in Sorted Array
+ * https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+ */
 
-// time complexity: O(log(n))
-// space complexity: O(1)
 public class P34 {
+    // time: O(log(n))
+    // space: O(1)
     public int[] searchRange(int[] nums, int target) {
-        if (nums.length == 0)
-            return new int[]{-1, -1};
+        if (nums.length == 0) return new int[]{-1, -1};
         int[] ans = new int[2];
         // find starting position, takes O(log(n))
         int low = 0, high = nums.length - 1, mid;
@@ -23,8 +24,7 @@ public class P34 {
             }
         }
         // does not find target then return [-1, -1]
-        if (nums[ans[0]] != target)
-            return new int[]{-1, -1};
+        if (nums[ans[0]] != target) return new int[]{-1, -1};
         // find ending position, takes O(log(n))
         low = 0;
         high = nums.length - 1;
