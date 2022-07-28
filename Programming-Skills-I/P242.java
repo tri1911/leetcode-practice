@@ -1,7 +1,7 @@
 package programmingSkills1;
 
 /**
- * Date: March 24, 2022
+ * Date: March 24, 2022 - Redo on July 28, 2022 (Daily Leetcode challenge)
  * 242. Valid Anagram
  * https://leetcode.com/problems/valid-anagram/
  */
