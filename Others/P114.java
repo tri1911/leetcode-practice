@@ -1,7 +1,7 @@
 package others;
 
 /**
- * Date: April 17, 2022
+ * Date: April 17, 2022 - Redo on July 27, 2022 (Daily Leetcode Challenge)
  * 114. Flatten Binary Tree to Linked List
  * https://leetcode.com/problems/flatten-binary-tree-to-linked-list/
  */
@@ -28,8 +28,8 @@ public class P114 {
         }
     }
 
-    //Definition for a binary tree node.
-    public class TreeNode {
+    // Definition for a binary tree node.
+    private class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
