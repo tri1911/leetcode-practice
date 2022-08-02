@@ -1,23 +1,28 @@
 package algorithm2.dynamicProgramming;
 
+/**
+ * Date: December 27, 2021 - Redo: August 01, 2022 (Leetcode Daily Challenge)
+ */
+
 public class P62 {
-    // recursion approach (Time Limit Exceed)
-//    public int uniquePaths(int m, int n) {
-//        return dfs(0, 0, m, n);
-//    }
-//
-//    private int dfs(int row, int col, int m, int n) {
-//        int count = 0;
-//        if (row == m - 1 && col == n - 1)
-//            return 1;
-//        if (row < m - 1) count += dfs(row + 1, col, m, n);
-//        if (col < n - 1) count += dfs(row, col + 1, m, n);
-//        return count;
-//    }
+    /*  recursion approach (Time Limit Exceed)
+        public int uniquePaths(int m, int n) {
+            return dfs(0, 0, m, n);
+        }
+
+        private int dfs(int row, int col, int m, int n) {
+            int count = 0;
+            if (row == m - 1 && col == n - 1)
+                return 1;
+            if (row < m - 1) count += dfs(row + 1, col, m, n);
+            if (col < n - 1) count += dfs(row, col + 1, m, n);
+            return count;
+        }
+     */
 
     // dynamic programming -> solve overlapped sub-problems exist in recursion approach
-    // time complexity: O(m*n)
-    // space complexity: O(m*n)
+    // time: O(m*n)
+    // space: O(m*n)
     public int uniquePaths(int m, int n) {
         int[][] dp = new int[m][n];
         for (int i = 0; i < m; i++) {
