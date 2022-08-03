@@ -1,8 +1,10 @@
 package topInterviewQs;
 
-// Date: Jan 4, 2022
-// 378. the Kth Smallest Element in a Sorted Matrix
-// https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/
+/**
+ * Date: Jan 4, 2022 - Redo on August 02, 2022 (Daily Leetcode challenge)
+ * 378. the Kth Smallest Element in a Sorted Matrix
+ * https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/
+ */
 
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -10,8 +12,9 @@ import java.util.Queue;
 // TODO: implement the solution using binary search approach
 
 public class P378 {
-    // time complexity: O(k*log(n))
-    // space complexity: O(n)
+    // min heap approach
+    // time: O(k * log(n))
+    // space: O(n)
     public int kthSmallest(int[][] matrix, int k) {
         int n = matrix.length;
         Queue<Node> minHeap = new PriorityQueue<>();
@@ -42,6 +45,27 @@ public class P378 {
         }
     }
 
+    // Binary search approach
+    // time: 
+    // space: 
+    public int _kthSmallest(int[][] matrix, int k) {
+        int n = matrix.length;
+        int low = matrix[0][0], high = matrix[n - 1][n - 1];
+        while (low < high) {
+            int mid = (low + high) / 2;
+            int position = getPosition(matrix, mid);
+            // search in the next range
+            if (position > k) low = mid + 1;
+            else high = mid;
+        }
+        return low;
+    }
+
+    // a helper fn to determine the position of `val` in matrix
+    private int getPosition(int[][] matrix, int val) {
+        // TODO
+    }
+
     public static void main(String[] args) {
         P378 obj = new P378();
         int[][] matrix = {{1, 2}, {3, 3}};
@@ -53,7 +77,10 @@ public class P378 {
     }
 }
 
-// reference
-// https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/discuss/85173/Share-my-thoughts-and-Clean-Java-Code
-// https://www.geeksforgeeks.org/kth-smallest-element-in-a-row-wise-and-column-wise-sorted-2d-array-set-1/
-// https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html
+/**
+ * references
+ * https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/discuss/85173/Share-my-thoughts-and-Clean-Java-Code
+ * https://www.geeksforgeeks.org/kth-smallest-element-in-a-row-wise-and-column-wise-sorted-2d-array-set-1/
+ * https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html
+ * https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/discuss/85177/Java-1ms-nlog(max-min)-solution
+ */
