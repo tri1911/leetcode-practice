@@ -1,13 +1,10 @@
 package algorithm2.dynamicProgramming;
 
-// date: Dec 23, 2021
-// 300. Longest Increasing Subsequence
-// https://leetcode.com/problems/longest-increasing-subsequence/
-
-// TODO: check out the better approach (with time O(nlog(n) using Patience Sorting)
-// https://leetcode.com/problems/longest-increasing-subsequence/discuss/74824/JavaPython-Binary-search-O(nlogn)-time-with-explanation
-// https://www.youtube.com/watch?v=22s1xxRvy28
-// https://www.cs.princeton.edu/courses/archive/spring13/cos423/lectures/LongestIncreasingSubsequence.pdf
+/**
+ * Date: Dec 23, 2021
+ * 300. Longest Increasing Subsequence
+ * https://leetcode.com/problems/longest-increasing-subsequence/
+ */
 
 public class P300 {
     /* time complexity: O(n*n)
@@ -27,8 +24,8 @@ public class P300 {
     }
      */
 
+    // TODO: check out the better approach (with time O(nlog(n) using Patience Sorting)
     public int lengthOfLIS(int[] nums) {
-
         return 1;
     }
 
@@ -48,3 +45,10 @@ public class P300 {
         System.out.println("Output: " + p.lengthOfLIS(new int[]{7, 7, 7, 7, 7, 7, 7}));
     }
 }
+
+/**
+ * References
+ * https://leetcode.com/problems/longest-increasing-subsequence/discuss/74824/JavaPython-Binary-search-O(nlogn)-time-with-explanation
+ * https://www.youtube.com/watch?v=22s1xxRvy28
+ * https://www.cs.princeton.edu/courses/archive/spring13/cos423/lectures/LongestIncreasingSubsequence.pdf
+ */
