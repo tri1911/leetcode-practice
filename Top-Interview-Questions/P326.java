@@ -1,7 +1,7 @@
 package topInterviewQs;
 
 /**
- * Date: Jan 12, 2022
+ * Date: Jan 12, 2022 - Redo: August 24, 2022
  * 326. Power of Three
  * https://leetcode.com/problems/power-of-three/
  */
@@ -22,6 +22,6 @@ public class P326 {
 }
 
 /**
- * reference
+ * Reference
  * https://leetcode.com/problems/power-of-three/solution/
  */
