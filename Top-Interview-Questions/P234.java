@@ -1,8 +1,10 @@
 package topInterviewQs;
 
-// Date: Jan 8, 2022
-// 234. Palindrome Linked List
-// https://leetcode.com/problems/palindrome-linked-list/
+/**
+ * Date: Jan 8, 2022 - Redo: August 23, 2022
+ * 234. Palindrome Linked List
+ * https://leetcode.com/problems/palindrome-linked-list/
+ */
 
 import java.util.Stack;
 
@@ -31,7 +33,25 @@ public class P234 {
      */
 
     public boolean isPalindrome(ListNode head) {
-
+        ListNode slow, fast, rev;
+        slow = fast = head;
+        rev = null;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            // reversing the half
+            ListNode tmp = rev;
+            rev = slow;
+            slow = slow.next;
+            rev.next = tmp;
+        }
+        if (fast != null) {
+            slow = slow.next;
+        }
+        while (slow != null) {
+            if (slow.val != rev.val) return false;
+            slow = slow.next;
+            rev = rev.next;
+        }
         return true;
     }
 
@@ -52,3 +72,8 @@ public class P234 {
         }
     }
 }
+
+/**
+ * References
+ * https://leetcode.com/problems/palindrome-linked-list/discuss/64500/11-lines-12-with-restore-O(n)-time-O(1)-space
+ */
