@@ -1,5 +1,7 @@
 package leetcodingchallenge.august2022;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -34,9 +36,9 @@ public class P417 {
         }
         return ans;
     }
-    
-    private int[][] directions = new int[][]{{1,0}, {0,1}, {-1, 0}, {0, -1}};
-    
+
+    private int[][] directions = new int[][]{{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+
     private void dfs(int row, int col, int weight, int height, int[][] heights, int[][] visited, List<List<Integer>> ans) {
         int m = heights.length, n = heights[0].length;
         // only make the next move if the visited[row][col] is unvisited (0) or not 3 or different from last visited (e.g. already 1, current 2)
