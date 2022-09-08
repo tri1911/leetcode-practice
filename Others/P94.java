@@ -6,7 +6,7 @@ import java.util.Deque;
 import java.util.List;
 
 /**
- * Date: April 18, 2022
+ * Date: April 18, 2022 - Redo: Sept 07, 2022
  * 94. Binary Tree Inorder Traversal
  * https://leetcode.com/problems/binary-tree-inorder-traversal/solution/
  */
@@ -57,8 +57,25 @@ public class P94 {
         return ans;
     }
 
+    // 3 - Recursive approach (Redo on Sept 07, 2022)
+    private List<Integer> ans;
+
+    public List<Integer> __inorderTraversal(TreeNode root) {
+        ans = new ArrayList();
+        inorder(root);
+        return ans;
+    }
+
+    private void inorder(TreeNode node) {
+        if (node != null) {
+            inorder(node.left);
+            ans.add(node.val);
+            inorder(node.right);
+        }
+    }
+
     // Definition for a binary tree node.
-    public class TreeNode {
+    private class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
