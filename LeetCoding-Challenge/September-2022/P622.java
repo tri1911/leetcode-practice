@@ -7,25 +7,32 @@ package leetcodingchallenge.september2022;
  */
 
 public class P622 {
-    final int[] queue;
-    int front = 0, rear = -1, len = 0;
+    // array to store circular queue
+    final private int[] queue;
+    // indices of front and rear of the circular
+    private int front, rear;
+    // variable to store the active length of the queue
+    private int size;
 
     public P622(int k) {
-        queue = new int[k];
+        this.queue = new int[k];
+        this.front = 0;
+        this.rear = -1;
+        this.size = 0;
     }
 
     public boolean enQueue(int value) {
         if (isFull()) return false;
         rear = (rear + 1) % queue.length;
         queue[rear] = value;
-        len++;
+        this.size++;
         return true;
     }
 
     public boolean deQueue() {
         if (isEmpty()) return false;
         front = (front + 1) % queue.length;
-        len--;
+        this.size--;
         return true;
     }
 
@@ -38,11 +45,11 @@ public class P622 {
     }
 
     public boolean isEmpty() {
-        return len == 0;
+        return this.size == 0;
     }
 
     public boolean isFull() {
-        return len == queue.length;
+        return this.size == queue.length;
     }
 }
 

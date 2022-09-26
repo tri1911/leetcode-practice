@@ -8,7 +8,7 @@ package leetcodingchallenge.september2022;
 
 public class P1680 {
     public int concatenatedBinary(int n) {
-        
+
         return 0;
     }
 }
