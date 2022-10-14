@@ -1,10 +1,13 @@
 package topInterviewQs;
 
-// Date: Jan 8, 2022
-// 237. Delete Node in a Linked List
-// https://leetcode.com/problems/delete-node-in-a-linked-list/
+/**
+ * Date: Jan 8, 2022 - Redo: Oct 13, 2022
+ * 237. Delete Node in a Linked List
+ * https://leetcode.com/problems/delete-node-in-a-linked-list/
+ */
 
 public class P237 {
+    // time & space: O(1)
     public void deleteNode(ListNode node) {
         node.val = node.next.val;
         node.next = node.next.next;
@@ -24,7 +27,7 @@ public class P237 {
         }
      */
 
-    class ListNode {
+    private class ListNode {
         int val;
         ListNode next;
 
@@ -34,5 +37,7 @@ public class P237 {
     }
 }
 
-// reference
-// https://leetcode.com/problems/delete-node-in-a-linked-list/discuss/65455/1-3-lines-C%2B%2BJavaPythonCCJavaScriptRuby
+/**
+ * Reference
+ * https://leetcode.com/problems/delete-node-in-a-linked-list/discuss/65455/1-3-lines-C%2B%2BJavaPythonCCJavaScriptRuby
+ */
